@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"   standalone="yes"?>
+<sampleProcess key="sampleProcess-132165465" name="sampleProcess" xmlns="http://sample-xsd.org/sample/process">
+    <start name="start" clazz="com.example.xsd.demo.ClassName"></start>
+    <before name="before" delegateExpression="beanName"></before>
+    <execution name="execution" expression="beanName.operation()"></execution>
+    <after name="after" clazz="com.example.xsd.demo.ClassName"></after>
+    <end name="end" delegateExpression="beanName"></end>
+</sampleProcess>
