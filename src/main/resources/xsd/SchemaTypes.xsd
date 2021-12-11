@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://sample-xsd.org/sample/process"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://sample-xsd.org/sample/process"
+            elementFormDefault="qualified">
+    <xsd:complexType name="SampleProcess">
+        <xsd:sequence>
+            <xsd:element name="start" type="Execution" maxOccurs="1" minOccurs="1"/>
+            <xsd:element name="before" type="Execution" maxOccurs="1" minOccurs="0"/>
+            <xsd:element name="execution" type="Execution" maxOccurs="1" minOccurs="1"/>
+            <xsd:element name="after" type="Execution" maxOccurs="1" minOccurs="0"/>
+            <xsd:element name="end" type="Execution" maxOccurs="1" minOccurs="1"/>
+            <xsd:element name="hook" type="Hook" maxOccurs="1" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="key" type="xsd:string" use="optional"/>
+        <xsd:attribute name="name" type="xsd:string" use="optional"/>
+    </xsd:complexType>
+    <xsd:element name="sampleProcess" type="SampleProcess"/>
+
+    <xsd:complexType name="Hook">
+        <xsd:simpleContent>
+            <xsd:extension base="Execution">
+                <xsd:attribute name="async" type="xsd:boolean" default="false"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="Execution">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="name" type="xsd:normalizedString" use="required"/>
+
+                <xsd:attribute name="clazz" type="xsd:normalizedString"/>
+                <xsd:attribute name="expression" type="xsd:normalizedString"/>
+                <xsd:attribute name="delegateExpression" type="xsd:normalizedString"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+</xsd:schema>
