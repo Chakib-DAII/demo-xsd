@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://sample-xsd.org/sample/process"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://sample-xsd.org/sample/process"
+            elementFormDefault="qualified">
+    <xsd:include schemaLocation="SchemaTypes.xsd"></xsd:include>
+</xsd:schema>
